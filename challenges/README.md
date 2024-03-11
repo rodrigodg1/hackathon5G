@@ -1,77 +1,80 @@
-# Desafios
-> Essa pasta contém os desafios propostos para a _Hackathon SMARTNESS / 5G Dataset Challenge_
+## Challenges
 
-> 📚 Notebooks auxiliares
-> - [Template para submissão](./submission-template.ipynb) dos desafios
-> - [Primeiros passos](./get-started.ipynb) em Aprendizado de Máquina e utilização dos conjuntos de dados
+> This folder contains the challenges proposed for the _Hackathon SMARTNESS / 5G Dataset Challenge_
 
-A edição mais recente do [Relatório de Mobilidade Ericsson](https://www.ericsson.com/en/reports-and-papers/mobility-report/dataforecasts/traffic-by-application) apontou que, no ano de 2022, 71% do tráfego da rede móvel mundial foi constituído por transmissão de vídeo e até 2028 esta demanda deverá aumentar em 9%. Nesse cenário, o gerenciamento e análise de redes móveis se mostram elementos fundamentais para promover uma melhor experiência de uso desse tipo de serviço, fator este que tende a proporcionar novas oportunidades de negócio e pesquisa à medida em que o uso da rede 5G se expande.
+> 📚 Auxiliary Notebooks
+> - Submission template: ./submission-template.ipynb for the challenges
+> - Getting started: ./get-started.ipynb in Machine Learning and using the datasets
 
-Em vista disso, a Hackathon SMARTNESS apresenta os seguintes desafios que podem contribuir para o desenvolvimento de novas soluções de gerenciamento e análise de redes móveis, visando atender a crescente demanda de tráfego de vídeo e a otimização da qualidade de experiência do usuário.
+The most recent edition of the Ericsson Mobility Report: [https://www.ericsson.com/en/reports-and-papers/mobility-report/dataforecasts/traffic-by-application](https://www.ericsson.com/en/reports-and-papers/mobility-report/dataforecasts/traffic-by-application) pointed out that, in 2022, 71% of the world's mobile network traffic was video streaming, and by 2028 this demand is expected to increase by 9%. In this scenario, mobile network management and analysis are fundamental elements to promote a better user experience for this type of service, which tends to provide new business and research opportunities as the use of the 5G network expands.
+
+Therefore, the SMARTNESS Hackathon presents the following challenges that can contribute to the development of new mobile network management and analysis solutions, aiming to meet the growing demand for video traffic and optimize the user experience.
 
 ---
-- **#1 Visualização usando o PathsViewer**
+- **#1 Visualization using PathsViewer**
   \
   🔍📊
 
-  **A ferramenta**: [PathsViewer](https://github.com/intrig-unicamp/paths-viewer) é uma interface para visualização de dados espaço-temporais em tempo real ou pós-eventos. Essa ferramenta busca suprir a demanda por ferramentas de visualização de trajetórias de objetos, em vista do grande interesse em pesquisas nesse tipo de dado.
+  **The tool**: PathsViewer: [https://github.com/intrig-unicamp/paths-viewer](https://github.com/intrig-unicamp/paths-viewer) is an interface for visualizing space-time data in real time or post-event. This tool seeks to meet the demand for visualization tools for object trajectories, given the great interest in research in this type of data.
 
-  É possível utilizar conjuntos de dados variados, com estruturas diversas, tais como _traces_ de 5G georreferenciados e trajetórias de veículos.
+  It is possible to use varied datasets, with different structures, such as georeferenced 5G traces and vehicle trajectories.
 
-  **O desafio**: Esse desafio tem como objetivo usar a ferramenta PathsViewer para apresentar os conjuntos de dados fornecidos (não é necessário utilizar todos eles).
+  **The challenge**: This challenge aims to use the PathsViewer tool to present the datasets provided (it is not necessary to use all of them).
 
-  As equipes devem explorar as funcionalidades do PathsViewer, como ajuste de escala, visualização em mapa 2D ou satélite, envio de múltiplos conjuntos de dados, entre outras. Com isso, é possível gerar visualizações claras e informativas que ajudem os usuários a visualizar as informações contidas nos dados de trajetórias de objetos.
+  Teams should explore the functionalities of PathsViewer, such as zoom adjustment, visualization in 2D or satellite map, sending multiple datasets, among others. With this, it is possible to generate clear and informative visualizations that help users to visualize the information contained in the object trajectory data.
 
-  **A entrega**: De modo que esse desafio em específico não envolve a aplicação de técnicas de aprendizado de máquina (tal como os demais a seguir), não é solicitado a entrega de um Jupyter Notebook. Em vez disso, espera-se que a submissão desse desafio seja composta de uma descrição do que foi realizado pela equipe, os insights obtidos, sugestões de melhorias para a ferramenta, eventuais códigos produzidos para o tratamento de dados acompanhado de um vídeo ou capturas de tela que mostrem a interface do PathsViewer com os conjuntos de dados fornecidos. É importante que a entrega mostre as funcionalidades utilizadas da ferramenta.
+  **The delivery**: Since this specific challenge does not involve the application of machine learning techniques (as do the others), the submission of a Jupyter Notebook is not required. Instead, it is expected that the submission of this challenge will consist of a description of what was done by the team, the insights obtained, suggestions for improvements to the tool, any codes produced for data processing accompanied by a video or screenshots that show the PathsViewer interface with the datasets provided. It is important that the delivery shows the functionalities used by the tool.
 
 ---
-- **#2 Predição de qualidade de sinal**
+- **#2 Signal quality prediction**
   \
   🔮📶
 
-  O objetivo deste desafio é inferir a qualidade do sinal com base nos atributos fornecidos na base `g-nettrack`. As equipes podem combinar os dados fornecidos com informações presentes em outros conjuntos com o intuito de complementar e enriquecer os dados disponíveis. Por exemplo, é possível combinar os dados da base `g-nettrack` com as do `mosaico` para prover informações das antenas na proximidade, como localização, azimute, densidade de antenas, frequência e tecnologia.
+  The objective of this challenge is to infer the signal quality based on the attributes provided in the `g-nettrack` database. Teams can combine the provided data with information present in other datasets in order to complement and enrich the available data. For example, it is possible to combine the data from the `g-nettrack` database with those from the `mosaico` database to provide information about the antennas in the vicinity, such as location, azimuth, antenna density, frequency and technology.
 
-  As equipes poderão utilizar modelos estatísticos e/ou técnicas de aprendizado de máquina, como modelos de predição mono e multivariados, para inferir os valores de um indicador de qualidade de sinal de escolha, tal como QUAL, CQI e SNNR.
-
----
-- **#3 Predição do tipo de mobilidade**
-  \
-  🔮🚗
-
-  Esse desafio consiste em utilizar métodos não-supervisionados de aprendizado de máquina para prever o tipo de mobilidade (pedestre, veículo, metrô/trem) de um dispositivo móvel com base nos dados de localização não rotulados fornecidos pelo conjunto de dados `g-nettrack`. Essa tarefa pode ser abordada de diversas formas, como, por exemplo, na forma de um problema de classificação baseada em clusterização (classificação não-supervisionada), onde o modelo de aprendizado de máquina deve classificar cada registro do conjunto de dados em uma das classes de mobilidade possíveis.
+  Teams will be able to use statistical models and/or machine learning techniques, such as mono and multivariate prediction models, to infer the values of a signal quality indicator of choice, such as QUAL, CQI and SNNR.
 
 ---
-- **#4 Predição da qualidade de experiência (QoE) da transmissão de vídeo**
-  \
-  🔮🎬
 
-  O desafio de predição da qualidade de experiência (QoE) da transmissão de vídeo adaptativo (YouTube) consiste em utilizar técnicas de aprendizado de máquina para prever a QoE da transmissão de vídeo em dispositivos móveis. A base `youtube-qoe` fornece as métricas da transmissão de vídeo. O objetivo é criar dois modelos de predição que levem em conta informações como as coordenadas do celular, as características da rede, a tecnologia utilizada, entre outras variáveis, para estimar a QoE da transmissão. Com isso, é possível melhorar a experiência do usuário, garantindo que a transmissão de vídeo seja realizada com a melhor qualidade possível, considerando as condições da rede e da região em que o usuário está localizado.
 
-  Os modelos desenvolvidos devem prever a QoE da transmissão com base em entradas distintas:
-  - Modelo 1: faz a predição com base nos dados de localização, obtidos no conjunto `g-nettrack` correlacionado com o `mosaico` para obter as antenas na proximidade; e
-  - Modelo 2: faz a predição com base nas métricas da rede (tal como qualidade do sinal e tecnologia), obtidos no conjunto `g-nettrack`.
+- **#3: Mobility Type Prediction**
 
-  Em resumo, o Modelo 1 deverá considerar apenas a disponibilidade de antenas na proximidade do usuário (tal como a tecnologia, potência e outros fatores das ERBs que podem influenciar na melhor qualidade da rede em determinada região) para inferir a QoE. Em contrapartida, o Modelo 2 leva em consideração apenas as condições da rede (métricas de rede).
+🔮🚗
 
-  Além de trabalhar no desenvolvimento dos modelos, as equipes devem criar uma função para definir a QoE. Uma alternativa simplória é relacionar a QoE diretamente com a resolução do vídeo, porém, é evidente que um vídeo de alta resolução com travamentos constantes não possui uma boa QoE. Ou também no cenário oposto, um vídeo totalmente sem travamentos e fluido, não apresenta boa QoE se for transmitido em baixíssima resolução.
+This challenge involves using unsupervised machine learning methods to predict the mobility type (pedestrian, vehicle, metro/train) of a mobile device based on the unlabeled location data provided in the `g-nettrack` dataset. This task can be approached in various ways, such as through a clustering-based classification problem (unsupervised classification), where the machine learning model must classify each dataset record into one of the possible mobility classes.
 
----
-- **#5 Inferir a qual Célula/Estação Rádio Base um celular está conectado**
-  \
-  🔮📡 
+- #**4: Video Streaming Quality of Experience (QoE) Prediction**
 
-  O desafio proposto é inferir a qual Célula/Estação Rádio Base (ERB) o dispositivo móvel está conectado, com base nas coordenadas do celular, usando o conjunto de dados `g-nettrack` correlacionado com a base `mosaico` para obter as antenas na proximidade. Isso envolve o uso de técnicas de processamento de dados e aprendizado de máquina para analisar os dados de localização e antenas próximas, além de conhecimento básico de implantação da arquitetura física de redes móveis.
+🔮🎬
 
-  Deve ser levado em consideração que as antenas de uma ERB podem ser direcionais (Azimute > 0) ou omnidirecionais (Azimute = 0), isto é, podem direcionar o sinal transmitido para uma determinada direção ou transmitir sinal para todas as direções ao seu redor, respectivamente.
+The video streaming Quality of Experience (QoE) prediction challenge involves using machine learning techniques to predict the QoE of video streaming on mobile devices. The `youtube-qoe` dataset provides the video streaming metrics. The goal is to create two prediction models that consider information such as cell phone coordinates, network characteristics, and technology used, among other variables, to estimate the transmission QoE. This can improve the user experience by ensuring that video streaming is performed with the best possible quality, considering the network conditions and the region where the user is located.
 
-# Critérios de avaliação
-- Os participantes devem resolver o maior número possível dos desafios fornecidos;
-- Pré-processamento dos dados;
-- Representação dos dados e estratégia de composição de atributos;
-- Estratégia de seleção do modelo escolhido;
-- Estratégia de validação;
-- Qualidade do modelo em relação às métricas de qualidade (tal como acurácia, precisão, revocação e F1-score);
-- Interpretabilidade do modelo sugerido;
-- Storytelling dos dados, incluindo conclusões;
-- Potencial impacto e viabilidade da solução apresentada; e
-- Criatividade da solução e apresentação.
+The developed models must predict the transmission QoE based on different inputs:
+
+- Model 1: Makes the prediction based on location data obtained from the `g-nettrack` dataset correlated with the `mosaic` dataset to obtain nearby antennas.
+- Model 2: Makes the prediction based on network metrics (such as signal quality and technology) obtained from the `g-nettrack` dataset.
+
+In summary, Model 1 should only consider the availability of antennas near the user (such as the technology, power, and other factors of the ERBs that can influence the best network quality in a specific region) to infer the QoE. In contrast, Model 2 only considers network conditions (network metrics).
+
+In addition to working on developing the models, teams must create a function to define QoE. A simplistic alternative is to directly relate QoE to video resolution. However, it is evident that a high-resolution video with constant buffering does not have good QoE. Conversely, a completely smooth and buffer-free video does not have good QoE if it is transmitted at a very low resolution.
+
+- **#5: Inferring which Cell/Base Radio Station a Mobile Phone is Connected to**
+
+🔮📡 
+
+The proposed challenge is to infer which Cell/Base Radio Station (ERB) the mobile device is connected to, based on the cell phone coordinates, using the `g-nettrack` dataset correlated with the `mosaic` dataset to obtain nearby antennas. This involves using data processing and machine learning techniques to analyze location data and nearby antennas, as well as basic knowledge of the physical architecture of mobile networks.
+
+It should be considered that the antennas of an ERB can be directional (Azimuth > 0) or omnidirectional (Azimuth = 0), that is, they can direct the transmitted signal to a specific direction or transmit signal to all directions around them, respectively.
+
+## Evaluation Criteria:
+
+- Participants must solve as many of the provided challenges as possible;
+- Data preprocessing;
+- Data representation and attribute composition strategy;
+- Selection strategy of the chosen model;
+- Validation strategy;
+- Model quality regarding quality metrics (such as accuracy, precision, recall, and F1-score);
+- Interpretability of the suggested model;
+- Data storytelling, including conclusions;
+- Potential impact and feasibility of the presented solution; and
+- Creativity of the solution and presentation.

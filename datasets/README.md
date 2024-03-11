@@ -1,84 +1,87 @@
-# Datasets
-> Essa pasta contém os conjuntos de dados disponibilizados para a _Hackathon SMARTNESS / 5G Dataset Challenge_
+## Datasets
 
-Para a Hackathon, foi feita a coleta de dados de utilização da rede 5G no Brasil. A metodologia de coleta de dados foi com base em testes de campo. Os experimentos foram conduzidos em um _Samsung S21 5G_.
+This folder contains the datasets made available for the _Hackathon SMARTNESS / 5G Dataset Challenge_.
 
-Abaixo, enumeramos os dois conjuntos de dados produzidos e um auxiliar. Cada conjunto de dados possui um Jupyter Notebook demonstrando uma exploração de dados inicial para os participantes conhecerem a estrutura dos dados.
+For the Hackathon, data on 5G network usage in Brazil was collected. The data collection methodology was based on field tests. The experiments were conducted on a _Samsung S21 5G_.
 
-# 🎬 Monitoramento do tráfego
-O YouTube tem integrado nos seus diversos clientes (Web, Web Mobile, IFrame, e aplicativos iOS e Android) um instrumento de coleta de métricas de experiência do usuário. Para identificar as métricas monitoradas (as quais são iguais nos demais clientes), analisamos o código do YouTube Web e as coletas de requisições em HAR pelo Chrome DevTools.
+Below, we list the two datasets produced and an auxiliary one. Each dataset has a Jupyter Notebook demonstrating an initial data exploration for participants to get to know the data structure.
 
-Para gerar os dados de tráfego no _Samsung S21 5G_, reproduzimos uma playlist com vídeos de alta resolução no YouTube Web Mobile, e a interceptação das métricas de tráfego foi feita pelo [`PCAPdroid`](https://github.com/emanuele-f/PCAPdroid) e o plugin [`PCAPdroid-mitm`](https://github.com/emanuele-f/PCAPdroid-mitm) para descriptografar os pacotes TLS.
+# 🎬 Traffic Monitoring
+YouTube has integrated in its various clients (Web, Web Mobile, IFrame, and iOS and Android applications) a tool for collecting user experience metrics. To identify the monitored metrics (which are the same in the other clients), we analyzed the YouTube Web code and the HAR request collections by Chrome DevTools.
 
-> 🛠️ Futuramente, o experimento vai utilizar o aplicativo do YouTube para representar uma situação mais próxima da realidade dos clientes móveis. Por enquanto, isso ainda não foi feito porque o aplicativo do YouTube utiliza o protocolo QUIC, que não é suportado pela versão atual do plugin, mas será suportado na [próxima versão](https://github.com/mitmproxy/mitmproxy/blob/main/CHANGELOG.md#unreleased-mitmproxy-next).
+To generate traffic data on the _Samsung S21 5G_, we played a playlist of high-resolution videos on YouTube Web Mobile, and the traffic metrics were intercepted by `PCAPdroid`: [https://github.com/emanuele-f/PCAPdroid](https://github.com/emanuele-f/PCAPdroid) and the `PCAPdroid-mitm`: [https://github.com/emanuele-f/PCAPdroid-mitm](https://github.com/emanuele-f/PCAPdroid-mitm) plugin to decrypt TLS packets.
 
-- [Dados `youtube-qoe`](./youtube-qoe) (coletas do PCAPdroid)
-- [Exploração de dados / Jupyter Notebook](./youtube-qoe.ipynb)
+> 🛠️ In the future, the experiment will use the YouTube application to represent a situation closer to the reality of mobile customers. For now, this has not been done yet because the YouTube application uses the QUIC protocol, which is not supported by the current version of the plugin, but will be supported in the next version: [https://github.com/mitmproxy/mitmproxy/blob/main/CHANGELOG.md#unreleased-mitmproxy-next](https://github.com/mitmproxy/mitmproxy/blob/main/CHANGELOG.md#unreleased-mitmproxy-next).
+
+- Dados `youtube-qoe`: ./youtube-qoe (PCAPdroid collections)
+- Data exploration / Jupyter Notebook: ./youtube-qoe.ipynb
 
 <details>
-<summary><b>Como coletar os dados usando o PCAPdroid</b></summary>
+<summary><b>How to collect data using PCAPdroid</b></summary>
 
-## Configurar a descriptografia TLS
-- Na seção *Traffic inspection* nas configurações do PCAPdroid (ícone ⚙️ no canto superior direito), habilite *TLS decryption*
-- Na primeira vez que a descriptografia for habilitada, será aberto o menu para configuração do plugin. Os passos incluem:
-    1. Baixar e instalar o addon `PCAPdroid-mitm`
-    2. Autorizar o PCAPdroid a controlar o addon
-    3. Instalar o certificado de autoridade (CA) do PCAPdroid
+## Configuring TLS decryption
+- In the *Traffic inspection* section of the PCAPdroid settings (⚙️ icon in the upper right corner), enable *TLS decryption*
+- The first time decryption is enabled, the menu for configuring the plugin will open. The steps include:
+    1. Download and install the `PCAPdroid-mitm` addon
+    2. Authorize PCAPdroid to control the addon
+    3. Install the PCAPdroid Certificate Authority (CA)
 
-## Configuração inicial
-- Na seção _Traffic inspection_ nas configurações do PCAPdroid (ícone ⚙️ no canto superior direito), desabilite a opção _Full payload_
-- Na seção _Capture_ nas configurações do PCAPdroid, habilite a opção _PCAPdroid trailer_
-- Defina o formato da captura de tráfego (_traffic dump format_) como _PCAP file_
-- Selecione o aplicativo que vai capturar o tráfego (nesse caso, o navegador que vai abrir o YouTube Web Mobile. Exemplo: Google Chrome, Firefox, Samsung Internet)
+## Initial Setup
+- In the _Traffic inspection_ section of the PCAPdroid settings (⚙️ icon in the upper right corner), disable the _Full payload_ option
+- In the _Capture_ section of the PCAPdroid settings, enable the _PCAPdroid trailer_ option
+- Set the traffic capture format (_traffic dump format_) to _PCAP file_
+- Select the application that will capture the traffic (in this case, the browser that will open YouTube Web Mobile. Example: Google Chrome, Firefox, Samsung Internet)
 
-## Capturar e exportar
-- Entre no aplicativo PCAPdroid
-- Selecione _Ready_
-- Inicie a geração de tráfego. Nesse momento, é possível sair do aplicativo
+## Capture and export
+- Enter the PCAPdroid application
+- Select _Ready_
+- Start generating traffic. At this point, you can leave the application
 - ...
-- Para finalizar a captura de tráfego, entre novamente no PCAPdroid
-- Pressione o botão de parar (ícone ⬜ no canto superior direito)
-- Pressione _OK_ no diálogo informando que o tráfego foi salvo
-- Se for gerado um arquivo com chaves SSL `sslkeylogfile.txt`, um diálogo será aberto para salvá-lo:
-    - Vá para a pasta na qual o arquivo derá ser salvo, como em `~/Download/PCAPdroid` (o mesmo local que as capturas PCAP são salvas)
-    - Selecione o arquivo de captura PCAP mais recente para copiar seu nome (para facilitar a identificação posterior)
-    - Edite a extensão `.pcap` para `.txt` do arquivo a ser salvo
-    - Salve
+- To finish capturing traffic, enter PCAPdroid again
+- Press the stop button (⬜ icon in the upper right corner)
+- Press _OK_ in the dialog informing that the traffic has been saved
+- If an SSL key file `sslkeylogfile.txt` is generated, a dialog will open to save it:
+    - Go to the folder where the file should be saved, such as in `~/Download/PCAPdroid` (the same location where PCAP captures are saved)
+    - Select the most recent PCAP capture file to copy its name (for easy identification later)
+    - Edit the `.pcap` extension to `.txt` of the file to be saved
+    - Save
 
-## Juntar `sslkeylogfile.txt` e `.pcap` em um único arquivo `.pcapng`
+## Merging `sslkeylogfile.txt` and `.pcap` into a single `.pcapng` file
 
-Para juntar os dois arquivos `sslkeylogfile.txt` e `.pcap` em um único arquivo `.pcapng`, podemos utilizar o programa de linha de comando `editcap` (que pode ser obtido ao instalar o `tshark`).
+To merge the two files `sslkeylogfile.txt` and `.pcap` into a single `.pcapng` file, we can use the command line program `editcap` (which can be obtained by installing `tshark`).
 
-Se o arquivo de chaves SSL e PCAP possuem o mesmo nome, basta usar uma variável com o nome da captura:
+If the SSL key file and PCAP have the same name, simply use a variable with the capture name:
 ```bash
 filename=PCAPdroid_17_Feb_02_19_56
 editcap --inject-secrets tls,${filename}.txt ${filename}.pcap ${filename}.pcapng
 ```
 
-Alternativamente, podemos informar os diferentes nomes individualmente:
+Alternatively, we can specify the different names individually:
 ```bash
 editcap --inject-secrets tls,sslkeylogfile_abc.txt captura_abc.pcap captura_e_sslkeys_abc.pcapng
 ```
 
-Ao obter os arquivos `.pcapng`, fazemos o pré-processamento para um formato mais fácil de utilizar. Para isso, executamos os [_scripts_](../scripts/) abaixo:
+Once we have the `.pcapng` files, we pre-process them into a more usable format. To do this, we run the _scripts_: ../scripts/ below:
 ```bash
-# transforma arquivos .pcapng para .json
+# transforms .pcapng files to .json
 ./scripts/extract_youtube_qoe_urls.py -g '*.pcapng'
 
-# transforma arquivos .json para Dataframes pandas no formato .pickle
+# transforms .json files to pandas Dataframes in .pickle format
 ./scripts/youtube_qoe_urls_preprocessing.py -g '*.json'
 ```
 
 </details>
 
-# 📶 Monitoramento da rede móvel
-As métricas de rede foram coletadas pela ferramenta G-NetTrack Pro ([manual](https://gyokovsolutions.com/manual-g-nettrack/#:~:text=Here%20is%20description%20of%20logfile%20columns)) em um trajeto com cobertura 5G da operadora Claro, como por exemplo, pelo centro de São Paulo, Av. Paulista, Butantã, e arredores.
+# 📶 Mobile Network Monitoring
 
-- [Dados `g-nettrack`](./g-nettrack-pro)
-- [Exploração de dados / Jupyter Notebook](./g-nettrack-pro.ipynb)
+The network metrics were collected by the G-NetTrack Pro tool (manual: [https://gyokovsolutions.com/manual-g-nettrack/#:~:text=Here%20is%20description%20of%20logfile%20columns](https://gyokovsolutions.com/manual-g-nettrack/#:~:text=Here%20is%20description%20of%20logfile%20columns)) on a route with Claro 5G coverage, such as downtown São Paulo, Paulista Avenue, Butantã, and surroundings.
 
-# 📡 ERBs Mosaico/Anatel (auxiliar)
-Em conjunto com os dados de tráfego e rede móvel, também podemos fazer o **enriquecimento de dados** com outros datasets, como por exemplo, usando o Mosaico da Anatel, que contém informações sobre todas as estações de telecomunicações (ERBs) registradas no Brasil. Dentre os dados disponibilizados pelo Mosaico, incluem: as tecnologias e equipamentos utilizados, as frequências de transmissão e recepção, a localização geográfica das estações, as datas de licenciamento e validade, informações sobre os proprietários das estações, entre outras.
+- Dados `g-nettrack`: ./g-nettrack-pro
+- Data exploration / Jupyter Notebook: ./g-nettrack-pro.ipynb
 
-- [Dados `mosaico`](./mosaico)
-- [Exploração de dados / Jupyter Notebook](./mosaico.ipynb)
+# 📡 ERBs Mosaico/Anatel (auxiliary)
+
+In conjunction with traffic and mobile network data, we can also perform **data enrichment** with other datasets, such as using Anatel's Mosaico, which contains information on all telecommunications stations (ERBs) registered in Brazil. Among the data made available by Mosaico, include: the technologies and equipment used, the transmission and reception frequencies, the geographical location of the stations, the licensing and validity dates, information on the owners of the stations, among others.
+
+- Dados `mosaico`: ./mosaico
+- Data exploration / Jupyter Notebook: ./mosaico.ipynb

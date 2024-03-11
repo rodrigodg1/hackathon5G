@@ -1,93 +1,91 @@
-# HACKATHON SMARTNESS / 5G DATASET CHALLENGE
-> _Desenvolvendo soluções e insights usando aprendizado de máquina nos dados de redes 5G no Brasil_
+## Hackathon Smartness / 5G Dataset Challenge
 
-[![nbviewer](https://raw.githubusercontent.com/jupyter/design/main/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/intrig-unicamp/hackathon5G/tree/main/)
+# Overview
 
-O avanço do 5G é uma das transformações mais significativas no mundo da tecnologia nos últimos anos, e o Brasil não está ficando para trás nessa corrida. Com uma latência e velocidade de transmissão de dados sem precedentes, o 5G promete revolucionar a conectividade e comunicação humana, além de possibilitar infinitas novas oportunidades para a inovação e empreendedorismo em diversas áreas como a saúde, a agricultura, a indústria e muito mais.
+The advancement of 5G is one of the most significant transformations in the technology world in recent years, and Brazil is not lagging behind in this race. With unprecedented latency and data transmission speed, 5G promises to revolutionize human connectivity and communication, as well as enable endless new opportunities for innovation and entrepreneurship in various areas such as healthcare, agriculture, industry, and much more.
 
-Nesse sentido, a _Hackathon SMARTNESS / 5G Dataset Challenge_ tem como objetivo instigar o desenvolvimento de soluções inovadoras e elaboração de _insights_ utilizando bases (fornecidas pela comissão organizadora da Hackathon SMARTNESS) compostas por dados de uso de serviços de _streaming_ de vídeo adaptativo (YouTube) e redes 5G no Brasil. Para suportar a resolução dos problemas, as equipes poderão usar bases auxiliares para enriquecimento de dados.
+In this context, the _Hackathon SMARTNESS / 5G Dataset Challenge_ aims to stimulate the development of innovative solutions and the elaboration of _insights_ using databases (provided by the organizing committee of Hackathon SMARTNESS) composed of data on the use of adaptive video streaming services (YouTube) and 5G networks in Brazil. To support the problem solving, teams will be able to use auxiliary databases for data enrichment.
 
-As equipes poderão desenvolver seus projetos em diversas linhas, como, por exemplo, análise exploratória de dados, desenvolvimento de _insights_ inovadores usando 5G e os conjuntos de dados disponibilizados, modelos de Aprendizado de Máquina para predição, classificação, agrupamento, suporte à decisão, desenvolvimento de modelos de desempenho de aplicações no contexto de 5G e muito mais.
+Teams will be able to develop their projects in several lines, such as, for example, exploratory data analysis, development of innovative _insights_ using 5G and the datasets made available, Machine Learning models for prediction, classification, clustering, decision support, development of application performance models in the context of 5G and much more.
 
-# Requisitos
-Para desenvolver soluções para a Hackathon, é necessário ter um computador para realizar o processamento de dados e Aprendizado de Máquina no _Jupyter Notebook_.
+# Requirements
 
-Além disso, é desejável que os participantes tenham conhecimentos nos seguintes assuntos:
-- Processamento e análise de dados;
-- Métodos de Aprendizado de Máquina, tais como regressão, clusterização, árvores de decisão, florestas aleatórias (_Random Forest_), k-vizinhos mais próximos (kNN), análise de discriminante linear;
-- Programação em _Python_; e
-- _Jupyter Notebook_.
+To develop solutions for the Hackathon, it is necessary to have a computer to perform data processing and Machine Learning in _Jupyter Notebook_.
 
-# 1º Passo: Preparação do ambiente de execução
+In addition, it is desirable that participants have knowledge in the following subjects:
 
-- **Google Colab**
+* Data processing and analysis;
+* Machine Learning methods, such as regression, clustering, decision trees, random forests (_Random Forest_), k-nearest neighbors (kNN), linear discriminant analysis;
+* Programming in _Python_; and
+* _Jupyter Notebook_.
 
-  É possível utilizar esse repositório de forma online, sem configurações adicionais. Basta clicar na _badge_ do Google Colab nos Notebooks que desejar executar.
+# 1st Step: Preparing the Execution Environment
 
-  Faça uma cópia do Notebook para realizar edições no conteúdo.
+## Google Colab
 
-  Atente-se para executar a célula que indica `configuração do ambiente Google Colab` antes de qualquer outra para que o ambiente seja configurado de forma adequada.
+It is possible to use this repository online, without additional configurations. Just click on the Google Colab _badge_ in the Notebooks you want to run.
 
-- **Localmente**
+Make a copy of the Notebook to edit the content.
 
-  Esse repositório pode ser executado localmente utilizando o ambiente [Mamba](https://mamba.readthedocs.io/en/latest/installation.html) ou [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html), e baixando os conjuntos de dados adicionais.
+Be sure to execute the cell that indicates `Google Colab environment configuration` before any other so that the environment is configured properly.
 
-  1. Clone o repositório em sua máquina dentro da pasta desejada:
-      ```
-      git clone --depth=1 https://github.com/intrig-unicamp/hackathon5G.git
-      cd hackathon5G
-      ```
+## Locally
 
-  2. Crie o ambiente a partir do arquivo `environment.yml`:
-      ```
-      # se usar o Micromamba:
-      micromamba env create -f environment.yml -y
+This repository can be run locally using the Mamba: [https://mamba.readthedocs.io/en/latest/installation.html](https://mamba.readthedocs.io/en/latest/installation.html) or Conda: [https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) environment, and downloading the additional datasets.
 
-      # se usar o Conda:
-      conda env create -f environment.yml
-      ```
+1. Clone the repository on your machine inside the desired folder:
 
-  3. Ative o ambiente:
-      ```
-      # se usar o Micromamba:
-      micromamba activate hackathon5G
+```
+git clone --depth=1 https://github.com/intrig-unicamp/hackathon5G.git
+cd hackathon5G
+```
 
-      # se usar o Conda:
-      conda activate hackathon5G
-      ```
+2. Create the environment from the `environment.yml` file:
 
-  4. Inicie o Jupyter Lab. Se uma janela do navegador não for aberta com o Jupyter Lab, basta clicar em um dos links de acesso disponíveis no terminal:
-      ```
-      jupyter lab
-      ```
+```
+# if using Micromamba:
+micromamba env create -f environment.yml -y
 
-# 2º passo: Datasets
-Consulte [aqui](datasets) a pasta com as bases de dados disponibilizadas e a sua respectiva documentação no [README](datasets/README.md) desta pasta.
+# if using Conda:
+conda env create -f environment.yml
+```
 
-# 3º passo: Desafios
-Consulte [aqui](challenges) a pasta com os desafios propostos. O [README](challenges/README.md) dessa pasta fornece as instruções necessárias sobre cada desafio. Também são fornecidos Notebooks auxiliares para as equipes iniciarem mais rapidamente o desenvolvimento dos desafios.
+3. Activate the environment:
 
-# 4º passo: Entrega
-> **[Google Forms](https://forms.gle/9Gnv8NFdCVPkLFQ99) para submissão das soluções**
+```
+# if using Micromamba:
+micromamba activate hackathon5G
 
-As equipes devem submeter os arquivos do Jupyter Notebook produzidos em cada solução, que devem conter um storytelling dos dados cobrindo a descrição do que foi realizado pela equipe, os insights obtidos, o pré-processamento, os modelos de Aprendizado de Máquina desenvolvidos, a avaliação de desempenho dos modelos, a escolha do modelo de Aprendizado de Máquina, entre outros tópicos que as equipes julguem pertinente.
+# if using Conda:
+conda activate hackathon5G
+```
 
-Atente-se ao roteiro dos desafios, aos critérios de avaliação e a entrega diferenciada de alguns desafios. Garanta que os avaliadores da comissão organizadora da Hackathon SMARTNESS tenham acesso a todos os arquivos da sua submissão. As equipes devem se assegurar de fornecer todos os demais conjuntos de dados que utilizaram. Dê preferência para baixar os dados necessários tal como as seguintes alternativas:
+4. Start Jupyter Lab. If a browser window does not open with Jupyter Lab, just click on one of the access links available in the terminal:
+
+```
+jupyter lab
+```
+
+# 2nd Step: Datasets
+
+See here: datasets the folder with the databases made available and their respective documentation in the README: datasets/README.md of this folder.
+
+# 3rd Step: Challenges
+
+See here: challenges the folder with the proposed challenges. The README: challenges/README.md of this folder provides the necessary instructions on each challenge. Auxiliary Notebooks are also provided for teams to start developing the challenges more quickly.
+
+# 4th Step: Submission
+
+**Google Forms: [https://forms.gle/9Gnv8NFdCVPkLFQ99](https://forms.gle/9Gnv8NFdCVPkLFQ99) for submitting solutions**
+
+Teams should submit the Jupyter Notebook files produced in each solution, which should contain a data storytelling covering the description of what was done by the team, the insights obtained, the pre-processing, the Machine Learning models developed, the performance evaluation of the models, the choice of the Machine Learning model, among other topics that the teams deem pertinent.
+
+Pay attention to the challenges roadmap, the evaluation criteria and the differentiated delivery of some challenges. Ensure that the evaluators of the Hackathon SMARTNESS organizing committee have access to all files in your submission. Teams must ensure that they provide all other datasets they used. Preferably, download the necessary data as follows:
 
 ```python
-# ✅ Recomendável
-# > clonar um repositório do GitHub. Exemplo:
+# ✅ Recommended
+# > clone a GitHub repository. Example:
 !git clone --depth=1 https://github.com/intrig-unicamp/hackathon5G.git
 
-# ✅ Recomendável
-# > baixar um arquivo usando o wget. Exemplo:
-!wget https://github.com/intrig-unicamp/hackathon5G/raw/main/datasets/mosaico/mosaico-erbs-são-paulo.zip
-
-# ✅ Recomendável
-# > baixar um arquivo do Google Drive (o arquivo deve estar acessível publicamente via link)
-!wget https://docs.google.com/uc?export=download&confirm=t&id=<ID DO ARQUIVO>
-
-# exemplo de link de arquivo: https://drive.google.com/file/d/1kqOgkzK-QTViGlVjyfMT7Dzr/view
-# o <ID DO ARQUIVO> seria: 1kqOgkzK-QTViGlVjyfMT7Dzr
-!wget https://docs.google.com/uc?export=download&confirm=t&id=1kqOgkzK-QTViGlVjyfMT7Dzr
-```
+# ✅ Recommended
+# > download a file
