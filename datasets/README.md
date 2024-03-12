@@ -9,7 +9,7 @@ Below, we list the two datasets produced and an auxiliary one. Each dataset has 
 # 🎬 Traffic Monitoring
 YouTube has integrated in its various clients (Web, Web Mobile, IFrame, and iOS and Android applications) a tool for collecting user experience metrics. To identify the monitored metrics (which are the same in the other clients), we analyzed the YouTube Web code and the HAR request collections by Chrome DevTools.
 
-To generate traffic data on the _Samsung S21 5G_, we played a playlist of high-resolution videos on YouTube Web Mobile, and the traffic metrics were intercepted by `PCAPdroid`: [https://github.com/emanuele-f/PCAPdroid](https://github.com/emanuele-f/PCAPdroid) and the `PCAPdroid-mitm`: [https://github.com/emanuele-f/PCAPdroid-mitm](https://github.com/emanuele-f/PCAPdroid-mitm) plugin to decrypt TLS packets.
+To generate traffic data on the _Samsung S21 5G_, we played a playlist of high-resolution videos on YouTube Web Mobile, and the traffic metrics were intercepted by [`PCAPdroid`](https://github.com/emanuele-f/PCAPdroid) and the [`PCAPdroid-mitm`](https://github.com/emanuele-f/PCAPdroid-mitm) plugin to decrypt TLS packets.
 
 > 🛠️ In the future, the experiment will use the YouTube application to represent a situation closer to the reality of mobile customers. For now, this has not been done yet because the YouTube application uses the QUIC protocol, which is not supported by the current version of the plugin, but will be supported in the next version: [https://github.com/mitmproxy/mitmproxy/blob/main/CHANGELOG.md#unreleased-mitmproxy-next](https://github.com/mitmproxy/mitmproxy/blob/main/CHANGELOG.md#unreleased-mitmproxy-next).
 
@@ -74,7 +74,7 @@ Once we have the `.pcapng` files, we pre-process them into a more usable format.
 
 # 📶 Mobile Network Monitoring
 
-The network metrics were collected by the G-NetTrack Pro tool (manual: [https://gyokovsolutions.com/manual-g-nettrack/#:~:text=Here%20is%20description%20of%20logfile%20columns](https://gyokovsolutions.com/manual-g-nettrack/#:~:text=Here%20is%20description%20of%20logfile%20columns)) on a route with Claro 5G coverage, such as downtown São Paulo, Paulista Avenue, Butantã, and surroundings.
+The network metrics were collected by the G-NetTrack Pro tool [`manual`](https://gyokovsolutions.com/manual-g-nettrack/#:~:text=Here%20is%20description%20of%20logfile%20columns) on a route with Claro 5G coverage, such as downtown São Paulo, Paulista Avenue, Butantã, and surroundings.
 
 - Dados `g-nettrack`: ./g-nettrack-pro
 - Data exploration / Jupyter Notebook: ./g-nettrack-pro.ipynb
